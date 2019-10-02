@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
               height: 40,
             ),
             TextFormField(
-              autofocus: true,
+              //autofocus: true,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: "E-mail",
@@ -43,7 +43,6 @@ class LoginPage extends StatelessWidget {
               height: 40,
             ),
             TextFormField(
-              autofocus: true,
               keyboardType: TextInputType.text,
               obscureText: true,
               decoration: InputDecoration(
