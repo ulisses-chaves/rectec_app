@@ -4,10 +4,6 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: Icon(Icons.cloud),
-      //   title: Text("RecTec"),
-      // ),
       body: Container(
         color: Color.fromRGBO(233, 236, 239, 1),
         padding: EdgeInsets.only(
