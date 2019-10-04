@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rectec_app/pages/pluviometria.page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -77,7 +78,9 @@ class LoginPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
+                },
               ),
             ),
             SizedBox(
@@ -93,11 +96,13 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(
               child: Text(
-                "UFRPE 2019",
+                "UFRPE - 2019",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: "sans-serif",
-                  fontSize: 14
+                  fontSize: 13,
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w600
                 ),
               ),
             )

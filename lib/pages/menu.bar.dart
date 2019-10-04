@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rectec_app/pages/cadastrar.medidor.page.dart';
+import 'package:rectec_app/pages/configurar.medidor.page.dart';
+import 'package:rectec_app/pages/novo.pluviometro.page.dart';
 import 'package:rectec_app/pages/pluviometria.page.dart';
 
 class MenuBar extends StatelessWidget {
@@ -53,7 +55,6 @@ class MenuBar extends StatelessWidget {
               ),
             ),
             onTap: (){
-              Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
             },
           ),
@@ -84,7 +85,7 @@ class MenuBar extends StatelessWidget {
             ),
             onTap: (){
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ConfigurarMedidorPage()));
             },
           ),
           Divider(),
@@ -99,7 +100,7 @@ class MenuBar extends StatelessWidget {
             ),
             onTap: (){
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NovoPluviometroPage()));
             },
           ),
           Divider(),
