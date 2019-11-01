@@ -17,11 +17,12 @@ class CadastrarMedidorPage extends StatelessWidget {
       ),
       drawer: MenuBar(),
       body: Container(
+        color: Colors.blueGrey[50],
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(
-          top: 60,
-          left: 40,
-          right: 40,
+          top: 30,
+          left: 20,
+          right: 20,
         ),
         child: Form(
           key: orderFormKey,
@@ -171,7 +172,7 @@ class CadastrarMedidorPage extends StatelessWidget {
                 )
               ),
               SizedBox(
-                height: 40,
+                height: 50,
               ),
               Container(
                 height: 55,
@@ -186,7 +187,7 @@ class CadastrarMedidorPage extends StatelessWidget {
                     "Cadastrar",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 16,
                       color: Colors.white,
                     ),
                   ),

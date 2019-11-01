@@ -21,11 +21,12 @@ class PluviometriaPage extends StatelessWidget {
       ),
       drawer: MenuBar(),
       body: Container(
+        color: Colors.blueGrey[50],
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(
           top: 60,
-          left: 40,
-          right: 40,
+          left: 20,
+          right: 20,
         ),
         child: Form(
           key: this.key, //vê isso aqui
@@ -63,9 +64,17 @@ class PluviometriaPage extends StatelessWidget {
                   color: Colors.black54,
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 style: TextStyle(
                   fontSize: 16
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(
+                    bottom: 5,
+                  ),
                 ),
               ),
               SizedBox(
@@ -78,10 +87,18 @@ class PluviometriaPage extends StatelessWidget {
                   color: Colors.black54,
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 keyboardType: TextInputType.datetime,
                 style: TextStyle(
                   fontSize: 16
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(
+                    bottom: 5,
+                  ),
                 ),
               ),
               SizedBox(
@@ -94,10 +111,18 @@ class PluviometriaPage extends StatelessWidget {
                   color: Colors.black54,
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 keyboardType: TextInputType.datetime,
                 style: TextStyle(
                   fontSize: 16
+                ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(
+                    bottom: 5,
+                  ),
                 ),
               ),
               SizedBox(
@@ -110,14 +135,22 @@ class PluviometriaPage extends StatelessWidget {
                   color: Colors.black54,
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 keyboardType: TextInputType.number,
                 style: TextStyle(
                   fontSize: 16
                 ),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(
+                    bottom: 5,
+                  ),
+                ),
               ),
               SizedBox(
-                height: 40,
+                height: 60,
               ),
               Container(
                 height: 55,
@@ -132,7 +165,7 @@ class PluviometriaPage extends StatelessWidget {
                     "Salvar",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 16,
                       color: Colors.white,
                     ),
                   ),

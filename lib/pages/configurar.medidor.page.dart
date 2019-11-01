@@ -19,8 +19,8 @@ class ConfigurarMedidorPage extends StatelessWidget {
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(
           top: 40,
-          left: 40,
-          right: 40,
+          left: 20,
+          right: 20,
         ),
         child: ListView(
           children: <Widget>[
@@ -55,7 +55,7 @@ class ConfigurarMedidorPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 60,
             ),
             Container(
               height: 55,
@@ -70,7 +70,7 @@ class ConfigurarMedidorPage extends StatelessWidget {
                   "Cadastrar",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     color: Colors.white,
                   ),
                 ),

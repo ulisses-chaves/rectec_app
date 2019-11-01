@@ -4,7 +4,12 @@ import 'package:rectec_app/pages/configurar.medidor.page.dart';
 import 'package:rectec_app/pages/novo.pluviometro.page.dart';
 import 'package:rectec_app/pages/pluviometria.page.dart';
 
-class MenuBar extends StatelessWidget {
+class MenuBar extends StatefulWidget {
+  @override
+  _MenuBarState createState() => _MenuBarState();
+}
+
+class _MenuBarState extends State<MenuBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -54,7 +59,9 @@ class MenuBar extends StatelessWidget {
                 fontSize: 19,
               ),
             ),
+            selected: true,
             onTap: (){
+              Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
             },
           ),

@@ -18,9 +18,9 @@ class NovoPluviometroPage extends StatelessWidget {
       body: Container(
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(
-          top: 60,
-          left: 40,
-          right: 40,
+          top: 40,
+          left: 20,
+          right: 20,
         ),
         child: ListView(
           children: <Widget>[
@@ -31,9 +31,17 @@ class NovoPluviometroPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(
+                height: 10,
+              ),
             TextFormField(
               style: TextStyle(
                 fontSize: 16
+              ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(
+                  bottom: 5,
+                ),
               ),
             ),
             SizedBox(
@@ -46,10 +54,18 @@ class NovoPluviometroPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(
+                height: 10,
+              ),
             TextFormField(
               keyboardType: TextInputType.datetime,
               style: TextStyle(
                 fontSize: 16
+              ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(
+                  bottom: 5,
+                ),
               ),
             ),
             SizedBox(
@@ -62,9 +78,17 @@ class NovoPluviometroPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(
+                height: 10,
+              ),
             TextFormField(
               style: TextStyle(
                 fontSize: 16
+              ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(
+                  bottom: 5,
+                ),
               ),
             ),
             SizedBox(
@@ -77,10 +101,18 @@ class NovoPluviometroPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(
+                height: 10,
+              ),
             TextFormField(
               keyboardType: TextInputType.number,
               style: TextStyle(
                 fontSize: 16
+              ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(
+                  bottom: 5,
+                ),
               ),
             ),
             SizedBox(
@@ -93,14 +125,22 @@ class NovoPluviometroPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(
+                height: 10,
+              ),
             TextFormField(
               keyboardType: TextInputType.number,
               style: TextStyle(
                 fontSize: 16
               ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(
+                  bottom: 5,
+                ),
+              ),
             ),
             SizedBox(
-              height: 40,
+              height: 50,
             ),
             Container(
               height: 55,
@@ -115,7 +155,7 @@ class NovoPluviometroPage extends StatelessWidget {
                   "Salvar",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
