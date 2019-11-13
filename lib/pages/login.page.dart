@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rectec_app/blocs/user.bloc.dart';
+import 'package:rectec_app/models/contaUser.model.dart';
 import 'package:rectec_app/pages/pluviometria.page.dart';
 
 
@@ -8,8 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
-  //final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _loginKey = GlobalKey<FormState>();
   var email = '';
   var password = '';
   
@@ -24,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           right: 20,
         ),
         child: Form(
-          key: _formKey,
+          key: _loginKey,
           child: ListView( 
             children: <Widget>[
               SizedBox(
@@ -106,8 +108,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      _formKey.currentState.save();
+                    if (_loginKey.currentState.validate()) {
+                      _loginKey.currentState.save();
+                      autenticar(context);
                     }
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => PluviometriaPage()));
                   },
@@ -141,5 +144,18 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  autenticar(BuildContext context) async {
+    var bloc = Provider.of<UserBloc>(context);
+    var user = await bloc.autenticar(
+      ContaUser(email: email, password: password)
+    );
+    if (user != null) {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => PluviometriaPage()));
+      return;
+    }
+
+    print("deu merda campeão");
   }
 }
