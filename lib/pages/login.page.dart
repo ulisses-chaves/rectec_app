@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         color: Colors.blueGrey[50],
         padding: EdgeInsets.only(
-          top: 60,
+          top: 30,
           left: 20,
           right: 20,
         ),
@@ -28,12 +28,12 @@ class _LoginPageState extends State<LoginPage> {
           child: ListView( 
             children: <Widget>[
               SizedBox(
-                width: 150,
-                height: 150,
+                width: 120,
+                height: 120,
                 child: Image.asset("assets/images/rectec.png"),
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
@@ -45,11 +45,8 @@ class _LoginPageState extends State<LoginPage> {
                   labelStyle: TextStyle(
                     color: Colors.black38,
                     fontWeight: FontWeight.w400,
-                    fontSize: 20
+                    fontSize: 16
                   ),
-                ),
-                style: TextStyle(
-                  fontSize: 20
                 ),
                 validator: (value) {
                   if (value.isEmpty) {
@@ -62,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               TextFormField(
                 keyboardType: TextInputType.text,
@@ -75,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                   labelStyle: TextStyle(
                     color: Colors.black38,
                     fontWeight: FontWeight.w400,
-                    fontSize: 20
+                    fontSize: 16
                   ),
                 ),
                 validator: (value) {
@@ -89,10 +86,10 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               Container(
-                height: 60,
+                height: 50,
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.all(
@@ -120,8 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                 height: 50,
               ),
               SizedBox(
-                width: 80,
-                height: 80,
+                width: 60,
+                height: 60,
                 child: Image.asset("assets/images/ufrpe.png"),
               ),
               SizedBox(

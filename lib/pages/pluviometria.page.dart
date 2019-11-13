@@ -24,7 +24,7 @@ class PluviometriaPage extends StatelessWidget {
         color: Colors.blueGrey[50],
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(
-          top: 60,
+          top: 30,
           left: 20,
           right: 20,
         ),
@@ -35,13 +35,14 @@ class PluviometriaPage extends StatelessWidget {
               Text(
                 "Nome",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   color: Colors.black54,
                 ),
               ),
               TextFormField(
                 style: TextStyle(
-                  fontSize: 16
+                  fontSize: 14,
+                  height: 0.5
                 ),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(

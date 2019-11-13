@@ -1,23 +1,26 @@
 class Pluviometria {
-  String data;
-  String hora;
-  String lamina;
-  String userId;
-  String pluviometroId;
+  var id;
+  var data;
+  var hora;
+  var lamina;
+  var userId;
+  var pluviometroId;
 
   Pluviometria(
-      {this.data, this.hora, this.lamina, this.userId, this.pluviometroId});
+      {this.id, this.data, this.hora, this.lamina, this.userId, this.pluviometroId});
 
   Pluviometria.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     data = json['data'];
     hora = json['hora'];
     lamina = json['lamina'];
     userId = json['user_id'];
-    pluviometroId = json['pluviometro_id'];
+    pluviometroId = json['pluviometroId'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
     data['data'] = this.data;
     data['hora'] = this.hora;
     data['lamina'] = this.lamina;

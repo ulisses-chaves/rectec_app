@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<UserBlock>.value(
-          value: UserBlock(),
+        Provider<UserBloc>.value(
+          value: UserBloc(),
         ),
-        ChangeNotifierProvider<PluviometriaBlock>.value(
-          value: PluviometriaBlock(),
+        ChangeNotifierProvider<PluviometriaBloc>.value(
+          value: PluviometriaBloc(),
         )
       ],
       child: Main(),

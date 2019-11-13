@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rectec_app/pages/cadastrar.medidor.page.dart';
 import 'package:rectec_app/pages/configurar.medidor.page.dart';
+import 'package:rectec_app/pages/historico.page.dart';
+import 'package:rectec_app/pages/login.page.dart';
 import 'package:rectec_app/pages/novo.pluviometro.page.dart';
 import 'package:rectec_app/pages/pluviometria.page.dart';
 
@@ -122,7 +124,7 @@ class _MenuBarState extends State<MenuBar> {
             ),
             onTap: (){
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HistoricoPage()));
             },
           ),
           Divider(),
@@ -137,7 +139,7 @@ class _MenuBarState extends State<MenuBar> {
             ),
             onTap: (){
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
           Divider(),
