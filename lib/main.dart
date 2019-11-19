@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rectec_app/blocs/pluviometro.bloc.dart';
 import 'package:rectec_app/blocs/user.bloc.dart';
 import 'package:rectec_app/pages/login.page.dart';
 import 'blocs/pluviometria.bloc.dart';
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<UserBloc>.value(
           value: UserBloc(),
+        ),
+        ChangeNotifierProvider<PluviometroBloc>.value(
+          value: PluviometroBloc(),
         ),
         ChangeNotifierProvider<PluviometriaBloc>.value(
           value: PluviometriaBloc(),

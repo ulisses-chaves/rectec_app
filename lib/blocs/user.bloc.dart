@@ -5,12 +5,14 @@ import 'package:rectec_app/models/user.model.dart';
 import 'package:rectec_app/repository/user.repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../settings.dart';
+
 class UserBloc {
   User user = new User();
   
   UserBloc() {
     user = null;
-    //carregarUser();
+    carregarUsuario();
   }
 
   Future<User> autenticar(ContaUser conta) async {
@@ -28,11 +30,18 @@ class UserBloc {
     }
   }
 
-  //Future carregarUser() async {
-    //var prefs = await SharedPreferences.getInstance();
-    //var userData = prefs.getString("user");
-    //if (userData != null) {
-      //var res = User
-    //}
-  //}
+  Future carregarUsuario() async {
+    var prefs = await SharedPreferences.getInstance();
+    var userData = prefs.getString("user");
+    if (userData != null) {
+      var res = User.fromJson(jsonDecode(userData));
+      Settings.user = res;
+      user = res;
+    }
+  }
+
+  Future<User> getUsuario() async {
+    User user = await UserRepository().getUsuario();
+    return user;
+  }
 }

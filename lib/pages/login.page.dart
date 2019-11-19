@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                       _loginKey.currentState.save();
                       autenticar(context);
                     }
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => PluviometriaPage()));
+                    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => PluviometriaPage()));
                   },
                 ),
               ),
@@ -155,7 +155,6 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => PluviometriaPage()));
       return;
     }
-
-    print("deu merda campeão");
+    print("Email e/ou senha incorretos");
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rectec_app/blocs/user.bloc.dart';
 import 'package:rectec_app/pages/cadastrar.medidor.page.dart';
 import 'package:rectec_app/pages/configurar.medidor.page.dart';
 import 'package:rectec_app/pages/historico.page.dart';
@@ -41,13 +43,21 @@ class _MenuBarState extends State<MenuBar> {
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    "Bem vindo, Ulisses",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    )
-                  )
+                  FutureBuilder(
+                    builder: (BuildContext context, AsyncSnapshot<String> snapshot,) {
+                      if (snapshot.hasData) {
+                        return Text(
+                          "Bem vindo, ${snapshot.data}",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        );
+                      }
+                      else return Text("Não tá logado!");
+                    },
+                    future: pegarNome(context),
+                  ),
                 ],
               ),
             ),
@@ -146,5 +156,11 @@ class _MenuBarState extends State<MenuBar> {
         ],
       ),
     );
+  }
+
+  Future<String> pegarNome(BuildContext context) async{
+    var bloc = Provider.of<UserBloc>(context);
+    var user = await bloc.getUsuario();
+    return user.name;
   }
 }

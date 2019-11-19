@@ -1,9 +1,9 @@
 class Pluviometro {
-  String pluviometroId;
-  String dataInstalacao;
-  String latitude;
-  String longitude;
-  String modeloId;
+  var pluviometroId;
+  var dataInstalacao;
+  var latitude;
+  var longitude;
+  var modeloId;
 
   Pluviometro(
       {this.pluviometroId,
