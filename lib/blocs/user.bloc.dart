@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:flutter/cupertino.dart';
 import 'package:rectec_app/models/contaUser.model.dart';
 import 'package:rectec_app/models/user.model.dart';
 import 'package:rectec_app/repository/user.repository.dart';
@@ -7,12 +7,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../settings.dart';
 
-class UserBloc {
+class UserBloc extends ChangeNotifier{
   User user = new User();
+  var usuarios = new List<User>();
+  final usuarioRepositorio = new UserRepository();
   
   UserBloc() {
     user = null;
     carregarUsuario();
+    getAll();
   }
 
   Future<User> autenticar(ContaUser conta) async {
@@ -43,5 +46,12 @@ class UserBloc {
   Future<User> getUsuario() async {
     User user = await UserRepository().getUsuario();
     return user;
+  }
+
+  getAll() async {
+    usuarioRepositorio.getAll().then((data) {
+      this.usuarios = data;
+      notifyListeners();
+    });
   }
 }

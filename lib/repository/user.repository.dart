@@ -10,6 +10,17 @@ class UserRepository {
     return User.fromJson(response.data);
   }
 
+  Future<List<User>> getAll() async {
+    var url = "${Settings.apiUrl}user";
+    Response response = await Dio().get(
+      url,
+      options: Options(
+        headers: Settings.basicAuth
+      ),
+    );
+    return (response.data as List).map((item) => User.fromJson(item)).toList();
+  }
+
   Future<User> getUsuario() async {
     var url = "${Settings.apiUrl}user/${Settings.user.id}";
     Response response = await Dio().get(

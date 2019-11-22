@@ -13,7 +13,7 @@ class PluviometroBloc extends ChangeNotifier{
   getPluviometros() {
     pluviometroRepositorio.getAll().then((data) {
       this.pluviometros = data;
-      //notifyListeners();
+      notifyListeners();
     });
   }
 }
