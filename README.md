@@ -10,22 +10,12 @@ https://flutter.dev/docs/get-started/install
 ### Etapas após o clone
 
 * Rodar localmente a API para esse app poder consumir: https://github.com/CiceroPereira/RecTec
-* Na pasta 'lib' do projeto crie um arquivo com o nome 'settings.dart' e cole isso nele:
+* Na pasta 'lib' do projeto abra o arquivo 'settings.dart' e preencha os campos:
 ```bash
-import 'dart:convert';
-import 'models/user.model.dart';
-
-class Settings {
-  static String apiUrl = "";
-  static User user;
-  static String username = ''; 
-  static String password = '';
-  static var basicAuth = {
-      'Authorization': 'Basic ' + base64Encode(utf8.encode('$username:$password'))
-    };
-}
+  static String apiUrl = ""; // URL da API local
+  static String username = ''; //  Escolha um usuário que pode ser encontrado nas migrations da API
+  static String password = ''; // Senha do usuário escolhido
 ```
-* No campo 'apiUrl' coloque a url da api local e nos campos 'username' e 'password' coloque um usuario encontrado nas migrations da API (o código apartir da linha do 'username' é apenas para teste, em breve será retirado)
 
 #### Comandos necessários na raiz do projeto para rodar
 ```bash
