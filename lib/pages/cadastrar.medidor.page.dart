@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:rectec_app/pages/menu.bar.dart';
 
-class CadastrarMedidorPage extends StatelessWidget {
+class CadastrarMedidorPage extends StatefulWidget {
   static final GlobalKey<FormFieldState<String>> orderFormKey = GlobalKey<FormFieldState<String>>();
+
+  @override
+  _CadastrarMedidorPageState createState() => _CadastrarMedidorPageState();
+}
+
+class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
+  String perfilDropdownValue = 'Administrador';
+  String profissaoDropdownValue = 'Professor';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +34,7 @@ class CadastrarMedidorPage extends StatelessWidget {
           right: 20,
         ),
         child: Form(
-          key: orderFormKey,
+          key: CadastrarMedidorPage.orderFormKey,
           child: ListView(
             children: <Widget>[
               TextFormField(
@@ -100,41 +109,65 @@ class CadastrarMedidorPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
-                //keyboardType: TextInputType.text,
+              Text(
+                "Perfil",
                 style: TextStyle(
-                  fontSize: 20
+                  fontSize: 13,
+                  color: Colors.black54,
                 ),
-                decoration: InputDecoration(
-                  labelText: "Perfil",
-                  labelStyle: TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 18
-                  ),
-                  contentPadding: EdgeInsets.all(4)
-                )
+              ),
+              DropdownButton(
+                value: perfilDropdownValue,
+                icon: Icon(Icons.arrow_drop_down),
+                underline: Container(
+                  color: Colors.black38,
+                  height: 1,
+                ),
+                onChanged: (String newValue) {
+                  setState(() {
+                    perfilDropdownValue = newValue;
+                  });
+                },
+                items: <String>['Administrador', 'Registrador']
+                  .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
-              TextFormField(
-                //keyboardType: TextInputType.text,
+              Text(
+                "Profissão",
                 style: TextStyle(
-                  fontSize: 20
+                  fontSize: 13,
+                  color: Colors.black54,
                 ),
-                decoration: InputDecoration(
-                  labelText: "Profissão",
-                  labelStyle: TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 18
-                  ),
-                  contentPadding: EdgeInsets.all(4)
-                )
+              ),
+              DropdownButton(
+                value: profissaoDropdownValue,
+                icon: Icon(Icons.arrow_drop_down),
+                underline: Container(
+                  color: Colors.black38,
+                  height: 1,
+                ),
+                onChanged: (String newValue) {
+                  setState(() {
+                    profissaoDropdownValue = newValue;
+                  });
+                },
+                items: <String>['Professor', 'Aluno', 'Engenheiro', 'Agricultor', 'Outro']
+                  .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextFormField(
                 keyboardType: TextInputType.text,

@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:rectec_app/blocs/modelo.bloc.dart';
+import 'package:rectec_app/models/modelo.model.dart';
 import 'package:rectec_app/pages/menu.bar.dart';
 
-class NovoPluviometroPage extends StatelessWidget {
+class NovoPluviometroPage extends StatefulWidget {
+  @override
+  _NovoPluviometroPageState createState() => _NovoPluviometroPageState();
+}
+
+class _NovoPluviometroPageState extends State<NovoPluviometroPage> {
+
+  String dropdownValueModelo = 'manual-las-pet-01';
+  static DateFormat dateFormat = DateFormat("dd-MM-yyyy"); 
+  String dateNow = dateFormat.format(DateTime.now()); 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,10 +69,10 @@ class NovoPluviometroPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-                height: 10,
-              ),
+              height: 10,
+            ),
             TextFormField(
-              keyboardType: TextInputType.datetime,
+              initialValue: dateNow,
               style: TextStyle(
                 fontSize: 16
               ),
@@ -67,6 +81,19 @@ class NovoPluviometroPage extends StatelessWidget {
                   bottom: 5,
                 ),
               ),
+              onTap: () async {
+                var dtPicker = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(1940),
+                  lastDate: DateTime(2020));
+                if(dtPicker != null) {
+                  setState(() {
+                    dtPicker = dateFormat.parse(dtPicker.toString());
+                    dateNow = dtPicker.toString();
+                  });
+                }  
+              },
             ),
             SizedBox(
               height: 20,
@@ -81,15 +108,34 @@ class NovoPluviometroPage extends StatelessWidget {
             SizedBox(
                 height: 10,
               ),
-            TextFormField(
-              style: TextStyle(
-                fontSize: 16
-              ),
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(
-                  bottom: 5,
-                ),
-              ),
+            FutureBuilder(
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return DropdownButton<String>(
+                    value: dropdownValueModelo,
+                    icon: Icon(Icons.arrow_drop_down),
+                    underline: Container(
+                      color: Colors.black38,
+                      height: 1,
+                    ),
+                    onChanged: (data) {
+                      setState(() {
+                        dropdownValueModelo = data;
+                      });
+                    },
+                    items: snapshot.data.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String> (
+                        value: value,
+                        child: Container(
+                          width: 250,
+                          child: Text(value),
+                        ),
+                      );
+                    }).toList(),
+                  );
+                } else return Text("${snapshot.error}");
+              },
+              future: getModelos(context),
             ),
             SizedBox(
               height: 20,
@@ -166,5 +212,14 @@ class NovoPluviometroPage extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future<List<String>> getModelos(BuildContext context) async {
+    var bloc = Provider.of<ModeloBloc>(context);
+    List<Modelo> modelos = bloc.modelos;
+    List<String> listaNomesModelos = new List<String> ();
+    for(var i = 0; i <modelos.length; i++) {
+      listaNomesModelos.add(modelos[i].tipo);
+    }
+    return listaNomesModelos;
   }
 }

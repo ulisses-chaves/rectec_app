@@ -73,8 +73,7 @@ class _MenuBarState extends State<MenuBar> {
             ),
             selected: true,
             onTap: (){
-              Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PluviometriaPage()));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => PluviometriaPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
@@ -88,8 +87,7 @@ class _MenuBarState extends State<MenuBar> {
               ),
             ),
             onTap: (){
-              Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CadastrarMedidorPage()));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => CadastrarMedidorPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
@@ -103,8 +101,7 @@ class _MenuBarState extends State<MenuBar> {
               ),
             ),
             onTap: (){
-              Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ConfigurarMedidorPage()));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ConfigurarMedidorPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
@@ -118,8 +115,7 @@ class _MenuBarState extends State<MenuBar> {
               ),
             ),
             onTap: (){
-              Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NovoPluviometroPage()));
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => NovoPluviometroPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
@@ -133,8 +129,7 @@ class _MenuBarState extends State<MenuBar> {
               ),
             ),
             onTap: (){
-              Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => HistoricoPage()));
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HistoricoPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
@@ -148,8 +143,7 @@ class _MenuBarState extends State<MenuBar> {
               ),
             ),
             onTap: (){
-              Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),

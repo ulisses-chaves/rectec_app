@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
       ContaUser(email: email, password: password)
     );
     if (user != null) {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => PluviometriaPage()));
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => PluviometriaPage()), (Route<dynamic> route) => false);
       return;
     }
     print("Email e/ou senha incorretos");

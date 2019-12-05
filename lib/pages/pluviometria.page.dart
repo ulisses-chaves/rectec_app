@@ -97,7 +97,6 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
               ),
               TextFormField(
                 initialValue: _dateNow,
-                keyboardType: TextInputType.datetime,
                 style: TextStyle(
                   fontSize: 16
                 ),

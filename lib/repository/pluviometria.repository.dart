@@ -10,7 +10,7 @@ class PluviometriaRepository {
       options: Options(
         headers: Settings.basicAuth
       )
-      );  
+    );  
     return (response.data as List).map((item) => Pluviometria.fromJson(item)).toList();
   }
 }
