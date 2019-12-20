@@ -15,7 +15,7 @@ class Pluviometria {
     hora = json['hora'];
     lamina = json['lamina'];
     userId = json['user_id'];
-    pluviometroId = json['pluviometroId'];
+    pluviometroId = json['pluviometro_id'];
   }
 
   Map<String, dynamic> toJson() {

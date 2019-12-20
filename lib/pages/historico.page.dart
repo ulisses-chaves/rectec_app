@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rectec_app/blocs/pluviometria.bloc.dart';
+import 'package:rectec_app/blocs/user.bloc.dart';
 import 'package:rectec_app/models/pluviometria.model.dart';
+import 'package:rectec_app/models/user.model.dart';
 import 'package:rectec_app/pages/menu.bar.dart';
 
 class SelecionarHistoricoPage extends StatelessWidget {
@@ -109,16 +111,21 @@ class _HistoricoPageState extends State<HistoricoPage> {
   }
 
   _buildItems(Pluviometria pluviometria) {
-    var hora = pluviometria.hora;
-    var data = pluviometria.data;
+    String data = pluviometria.data;
+    //String usuario = nomeUsuario(pluviometria.userId);       VER ISSO AQUI
     String usuario = pluviometria.userId.toString();
     String lamina = pluviometria.lamina.toString();
     String pluviometro = pluviometria.pluviometroId.toString();
     return ListTile(
       title: Text(
-        "$usuario - $pluviometro - $lamina" + "mm"
+        "$usuario - $data - ${lamina}mm - $pluviometro"
       ),
     );
+  }
+
+  nomeUsuario(id) async {
+    User usuario = await UserBloc().getUsuarioById(id);
+    return usuario.name;
   }
 
   @override

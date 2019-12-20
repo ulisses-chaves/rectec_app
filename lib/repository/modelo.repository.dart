@@ -12,7 +12,6 @@ class ModeloRepository {
         headers: Settings.basicAuth
       )
     );
-    print(response.data);
     return (response.data as List).map((item) => Modelo.fromJson(item)).toList();
   }
 }

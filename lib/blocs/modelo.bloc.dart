@@ -8,7 +8,7 @@ class ModeloBloc extends ChangeNotifier{
   final modeloRepositorio = new ModeloRepository();
 
   ModeloBloc(){
-
+    getModelos();
   }
 
   getModelos() {

@@ -16,4 +16,13 @@ class PluviometriaBloc extends ChangeNotifier{
       notifyListeners();
     });
   }
+
+  addPluviometria(pluviometria) {
+    return PluviometriaBloc().addPluviometria(pluviometria);
+  }
+
+  /*Future<Pluviometria> getPluviometriaById(int id) async{
+    Pluviometria pluviometria = await PluviometriaRepository().getPluviometriaById(id);
+    return pluviometria;
+  }*/
 }

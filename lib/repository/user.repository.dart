@@ -21,8 +21,21 @@ class UserRepository {
     return (response.data as List).map((item) => User.fromJson(item)).toList();
   }
 
+  // getUsuario() pega o usuario que está logado
+
   Future<User> getUsuario() async {
     var url = "${Settings.apiUrl}user/${Settings.user.id}";
+    Response response = await Dio().get(
+      url,
+      options: Options(
+        headers: Settings.basicAuth
+      ),
+    );
+    return User.fromJson(response.data);
+  }
+
+  Future<User> getUsuarioById(int id) async {
+    var url = "${Settings.apiUrl}user/$id";
     Response response = await Dio().get(
       url,
       options: Options(

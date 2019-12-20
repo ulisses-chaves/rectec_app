@@ -43,8 +43,14 @@ class UserBloc extends ChangeNotifier{
     }
   }
 
+  // getUsuario() pega o usuário que está logado
   Future<User> getUsuario() async {
     User user = await UserRepository().getUsuario();
+    return user;
+  }
+
+  Future<User> getUsuarioById(int id) async {
+    User user = await UserRepository().getUsuarioById(id);
     return user;
   }
 
