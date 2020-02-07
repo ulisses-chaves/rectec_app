@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:rectec_app/pages/menu.bar.dart';
 
 class CadastrarMedidorPage extends StatefulWidget {
-  static final GlobalKey<FormFieldState<String>> orderFormKey = GlobalKey<FormFieldState<String>>();
-
   @override
   _CadastrarMedidorPageState createState() => _CadastrarMedidorPageState();
 }
 
 class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
+  final _cadastrarMedidorKey = GlobalKey<FormState>();
   String perfilDropdownValue = 'Administrador';
   String profissaoDropdownValue = 'Professor';
+  var nome = '';
+  var cpf = '';
+  var email = '';
+  var endereco = '';
+  var senha = '';
+  var confirmarSenha = '';
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,7 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
           right: 20,
         ),
         child: Form(
-          key: CadastrarMedidorPage.orderFormKey,
+          key: _cadastrarMedidorKey,
           child: ListView(
             children: <Widget>[
               TextFormField(
@@ -50,7 +55,17 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
                     fontSize: 18
                   ),
                   contentPadding: EdgeInsets.all(4)
-                )
+                ),
+                validator: (value) {
+                  var idx = value.indexOf(' ');
+                  if (value.isEmpty) return 'Preencha esse campo';
+                  if (idx == -1) return 'Sobrenome é necessário';
+                  return null;
+                },
+                onSaved: (val) {
+                  var finalVal = val.replaceFirst(val.substring(0, 1), val.substring(0, 1).toUpperCase());
+                  nome = finalVal;
+                },
               ),
               SizedBox(
                 height: 20,
@@ -68,7 +83,18 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
                     fontSize: 18
                   ),
                   contentPadding: EdgeInsets.all(4)
-                )
+                ),
+                validator: (value) {
+                  if (value.isEmpty) return 'Preencha esse campo';
+                  if (value.indexOf(' ') != -1 || value.indexOf('-') != -1 || value.indexOf(',') != -1 || value.indexOf('.') != -1) {
+                    return 'Apenas números';
+                  }
+                  if (value.length != 11) return 'CPF deve conter 11 dígitos';
+                  return null;
+                },
+                onSaved: (val) {
+                  cpf = val;
+                },
               ),
               SizedBox(
                 height: 20,
@@ -86,7 +112,15 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
                     fontSize: 18
                   ),
                   contentPadding: EdgeInsets.all(4)
-                )
+                ),
+                validator: (value) {
+                  if (value.isEmpty) return 'Preencha esse campo';
+                  if (value.indexOf('@') == -1 || value.indexOf(' ') != -1) return 'Email inválido';
+                  return null;
+                },
+                onSaved: (val) {
+                  email = val;
+                },
               ),
               SizedBox(
                 height: 20,
@@ -104,7 +138,14 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
                     fontSize: 18
                   ),
                   contentPadding: EdgeInsets.all(4)
-                )
+                ),
+                validator: (value) {
+                  if (value.isEmpty) return 'Preencha esse campo';
+                  return null;
+                },
+                onSaved: (val) {
+                  endereco = val;
+                },
               ),
               SizedBox(
                 height: 20,
@@ -183,7 +224,15 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
                     fontSize: 18
                   ),
                   contentPadding: EdgeInsets.all(4)
-                )
+                ),
+                validator: (value) {
+                  if (value.isEmpty) return 'Preencha esse campo';
+                  if (value.length < 5) return 'Senha pequena';
+                  return null;
+                },
+                onSaved: (val) {
+                  senha = val;
+                },
               ),
               SizedBox(
                 height: 20,
@@ -202,7 +251,15 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
                     fontSize: 18
                   ),
                   contentPadding: EdgeInsets.all(4)
-                )
+                ),
+                validator: (value) {
+                  if (value.isEmpty) return 'Preencha esse campo';
+                  if (value.length < 5) return 'Senha Pequena';
+                  return null;
+                },
+                onSaved: (val) {
+                  confirmarSenha = val;
+                },
               ),
               SizedBox(
                 height: 50,
@@ -224,7 +281,12 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
                       color: Colors.white,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if(_cadastrarMedidorKey.currentState.validate()) {
+                      _cadastrarMedidorKey.currentState.save();
+                      cadastrar(context);
+                    }
+                  },
                 ),
               ),
             ]
@@ -232,5 +294,8 @@ class _CadastrarMedidorPageState extends State<CadastrarMedidorPage> {
         ),
       ),
     );
+  }
+  cadastrar (BuildContext context) {
+    //TRATAR ERRO SE AS SENHAS N FOREM IGUAIS COM MODAL OU ALGUM OUTRA COISA
   }
 }

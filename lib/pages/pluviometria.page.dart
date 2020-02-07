@@ -110,7 +110,7 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
                     context: context,
                     initialDate: DateTime.now(),
                     firstDate: DateTime(1940),
-                    lastDate: DateTime(2020));
+                    lastDate: DateTime(2099));
                   if(dtPicker != null) {
                     setState(() {
                       _dateNow = dtPicker.toString().substring(0, 10);
