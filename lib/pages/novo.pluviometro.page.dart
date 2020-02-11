@@ -72,6 +72,8 @@ class _NovoPluviometroPageState extends State<NovoPluviometroPage> {
               height: 10,
             ),
             TextFormField(
+              showCursor: true, 
+              readOnly: true, 
               initialValue: dateNow,
               style: TextStyle(
                 fontSize: 16
@@ -86,10 +88,11 @@ class _NovoPluviometroPageState extends State<NovoPluviometroPage> {
                   context: context,
                   initialDate: DateTime.now(),
                   firstDate: DateTime(1940),
-                  lastDate: DateTime(2020));
+                  lastDate: DateTime(2099));
                 if(dtPicker != null) {
                   setState(() {
                     dtPicker = dateFormat.parse(dtPicker.toString());
+                    print(dtPicker);
                     dateNow = dtPicker.toString();
                   });
                 }  

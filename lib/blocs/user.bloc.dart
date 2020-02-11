@@ -60,4 +60,43 @@ class UserBloc extends ChangeNotifier{
       notifyListeners();
     });
   }
+
+  Future addUsuario(var nome, var cpf, var email, var endereco, var perfil, var profissao, var senha) async {
+    var idPerfil;
+    var idProfissao;
+
+    if (perfil == 'Administrador') idPerfil = 1;
+    else idPerfil = 2;
+
+    switch (profissao) {
+      case 'Professor': {
+        idProfissao = 1;
+        break;
+      }
+      case 'Aluno': {
+        idProfissao = 2;
+        break;
+      }
+      case 'Engenheiro': {
+        idProfissao = 3;
+        break;
+      }
+      case 'Agricultor': {
+        idProfissao = 4;
+        break;
+      }
+      case 'Outro': {
+        idProfissao = 5;
+        break;
+      }
+    }
+    User usuario = new User (name: nome, cpf: cpf, email: email, endereco: endereco, idPerfil: idPerfil, idProfissao: idProfissao, password: senha);
+    try {
+      var repository = new UserRepository();
+      var resposta = await repository.addUsuario(usuario);
+      return resposta;
+    } catch (ex) {
+      return ex; 
+    }
+  }
 }

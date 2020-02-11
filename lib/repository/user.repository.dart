@@ -44,4 +44,16 @@ class UserRepository {
     );
     return User.fromJson(response.data);
   }
+
+  Future addUsuario(User usuario) async {
+    var url = "${Settings.apiUrl}/register";
+    Response response = await Dio().post(
+      url,
+      data: usuario,
+      options: Options(
+        headers: Settings.basicAuth
+      ),
+    );
+    return response;
+  }
 }
