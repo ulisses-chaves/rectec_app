@@ -13,4 +13,16 @@ class PluviometroRepository {
     );
     return (response.data as List).map((item) => Pluviometro.fromJson(item)).toList();
   }
+
+  Future addPluviometro (Pluviometro pluviometro) async {
+    var url = Settings.apiUrl + "/pluviometro";
+    Response response = await Dio().post(
+      url,
+      data: pluviometro,
+      options: Options(
+        headers: Settings.basicAuth,
+      )
+    );
+    return response;
+  }
 }

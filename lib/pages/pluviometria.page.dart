@@ -202,7 +202,7 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
     List<Pluviometro> pluviometros = bloc.pluviometros;
     List<String> listaNomesPluviometros = new List<String> ();
     for(var i = 0; i <pluviometros.length; i++) {
-      listaNomesPluviometros.add(pluviometros[i].pluviometroId);
+      listaNomesPluviometros.add(pluviometros[i].nome);
     }
     return listaNomesPluviometros;
   }
