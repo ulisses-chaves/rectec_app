@@ -2,7 +2,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:rectec_app/blocs/pluviometria.bloc.dart';
 import 'package:rectec_app/blocs/pluviometro.bloc.dart';
 import 'package:rectec_app/models/pluviometro.model.dart';
 import 'package:rectec_app/pages/menu.bar.dart';
@@ -14,9 +16,14 @@ class PluviometriaPage extends StatefulWidget {
 
 class _PluviometriaPageState extends State<PluviometriaPage> {
   final _pluviometriaKey = GlobalKey<FormState>();
-  String _dateNow = DateTime.now().toString().substring(0, 10);
-  String hourNow = DateTime.now().toString().substring(11, 16);
+  //String _dateNow = DateTime.now().toString().substring(0, 10);
+  //String hourNow = DateTime.now().toString().substring(11, 16);
   String dropdownValue = '2018-prae-01';
+  static DateFormat dateFormat = DateFormat("dd-MM-yyyy"); 
+  var dateNow = dateFormat.format(DateTime.now());
+  var hourNow = TimeOfDay.now().toString().substring(10, 15);
+  var pluviometro = '2018-prae-01';
+  var lamina = '';
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +71,7 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
                         height: 1,
                       ),
                       onChanged: (data) {
+                        pluviometro = data;
                         setState(() {
                           dropdownValue = data;
                         });
@@ -95,28 +103,35 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
               SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                initialValue: _dateNow,
-                style: TextStyle(
-                  fontSize: 16
+              FlatButton(
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.calendar_today, 
+                      color: Colors.blue,
+                    ),
+                    Text('   '),
+                    Text(
+                      dateNow,
+                      style: TextStyle(
+                        fontSize: 15
+                      ),
+                    ),
+                  ],
                 ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(
-                    bottom: 5,
-                  ),
-                ),
-                onTap: () async {
-                  final dtPicker = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1940),
-                    lastDate: DateTime(2099));
-                  if(dtPicker != null) {
-                    setState(() {
-                      _dateNow = dtPicker.toString().substring(0, 10);
-                    });
-                  }  
-                },
+                onPressed: () async {
+                    var dtPicker = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(1940),
+                      lastDate: DateTime(2099));
+                    if(dtPicker != null) {
+                      setState(() {
+                        dtPicker = dateFormat.parse(dateFormat.format(dtPicker));
+                        dateNow = dtPicker.toString().substring(0, 10);
+                      });
+                    }
+                  },
               ),
               SizedBox(
                 height: 20,
@@ -131,17 +146,33 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
               SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                initialValue: hourNow,
-                keyboardType: TextInputType.datetime,
-                style: TextStyle(
-                  fontSize: 16
+              FlatButton(
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.access_time, 
+                      color: Colors.blue,
+                    ),
+                    Text('   '),
+                    Text(
+                      hourNow,
+                      style: TextStyle(
+                        fontSize: 15
+                      ),
+                    ),
+                  ],
                 ),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(
-                    bottom: 5,
-                  ),
-                ),
+                onPressed: () async {
+                  TimeOfDay tmPicker = await showTimePicker(
+                    context: context, 
+                    initialTime: TimeOfDay.now()
+                  );
+                  if(tmPicker != null) {
+                    setState(() {
+                      hourNow = tmPicker.toString().substring(10, 15);
+                    });
+                  }
+                },
               ),
               SizedBox(
                 height: 20,
@@ -166,6 +197,14 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
                     bottom: 5,
                   ),
                 ),
+                validator: (value) {
+                  if (value.isEmpty) return "Preencha esse campo";
+                  if (value.indexOf(' ') != -1 || value.indexOf(',') != -1 || value.indexOf('-') != -1) return "Use '.', não use '-' e nem espaços";
+                  return null;
+                },
+                onSaved: (value) {
+                    lamina = value;
+                  },
               ),
               SizedBox(
                 height: 60,
@@ -187,7 +226,12 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
                       color: Colors.white,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_pluviometriaKey.currentState.validate()) {
+                      _pluviometriaKey.currentState.save();
+                      salvarPluviometria();
+                    }
+                  },
                 ),
               ),
             ],
@@ -206,5 +250,9 @@ class _PluviometriaPageState extends State<PluviometriaPage> {
     }
     return listaNomesPluviometros;
   }
-
+  salvarPluviometria() async {
+    var bloc = Provider.of<PluviometriaBloc>(context);
+    var resposta = await bloc.addPluviometria(pluviometro, dateNow, hourNow, lamina, context);
+    //print (lamina + pluviometro + hourNow + dateNow);
+  }
 }
