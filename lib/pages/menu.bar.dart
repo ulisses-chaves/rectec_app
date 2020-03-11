@@ -118,7 +118,7 @@ class _MenuBarState extends State<MenuBar> {
               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => NovoPluviometroPage()), (Route<dynamic> route) => false);
             },
           ),
-          Divider(),
+          /*Divider(),
           ListTile(
             leading: Icon(Icons.web),
             title: Text(
@@ -131,7 +131,7 @@ class _MenuBarState extends State<MenuBar> {
             onTap: (){
               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HistoricoPage()), (Route<dynamic> route) => false);
             },
-          ),
+          ),*/
           Divider(),
           ListTile(
             leading: Icon(Icons.directions_run),

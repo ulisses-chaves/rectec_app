@@ -14,8 +14,8 @@ class PluviometriaRepository {
     return (response.data as List).map((item) => Pluviometria.fromJson(item)).toList();
   }
 
-  Future addPluviometria(pluviometria) async {
-    var url = Settings.apiUrl + "pluviometria";
+  Future addPluviometria(Pluviometria pluviometria) async {
+    var url = "${Settings.apiUrl}pluviometria";
     Response response = await Dio().post(
       url,
       data: pluviometria,

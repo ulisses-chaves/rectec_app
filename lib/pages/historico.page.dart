@@ -113,9 +113,9 @@ class _HistoricoPageState extends State<HistoricoPage> {
   _buildItems(Pluviometria pluviometria) {
     String data = pluviometria.data;
     //String usuario = nomeUsuario(pluviometria.userId);       VER ISSO AQUI
-    String usuario = pluviometria.userId.toString();
+    String usuario = pluviometria.user_id.toString();
     String lamina = pluviometria.lamina.toString();
-    String pluviometro = pluviometria.pluviometroId.toString();
+    String pluviometro = pluviometria.pluviometro_id.toString();
     return ListTile(
       title: Text(
         "$usuario - $data - ${lamina}mm - $pluviometro"

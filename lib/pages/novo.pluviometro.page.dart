@@ -15,7 +15,7 @@ class _NovoPluviometroPageState extends State<NovoPluviometroPage> {
 
   final _novoPluviometroKey = GlobalKey<FormState>();
   String dropdownValueModelo = 'manual-las-pet-01';
-  static DateFormat dateFormat = DateFormat("dd-MM-yyyy"); 
+  static DateFormat dateFormat = DateFormat("yyyy-MM-dd"); 
   var dateNow = dateFormat.format(DateTime.now()); 
 
   var nome = '';

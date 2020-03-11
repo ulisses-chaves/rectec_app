@@ -1,4 +1,5 @@
 class Pluviometro {
+  var id;
   var nome;
   var data;
   var latitude;
@@ -6,13 +7,15 @@ class Pluviometro {
   var tipo;
 
   Pluviometro(
-      {this.nome,
+      {this.id,
+      this.nome,
       this.data,
       this.latitude,
       this.longitude,
       this.tipo});
 
   Pluviometro.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     nome = json['pluviometroId'];
     data = json['data_instalacao'];
     latitude = json['latitude'];
