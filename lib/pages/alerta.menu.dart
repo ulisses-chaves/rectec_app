@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rectec_app/blocs/user.bloc.dart';
-import 'package:rectec_app/pages/cadastrar.medidor.page.dart';
-import 'package:rectec_app/pages/configurar.medidor.page.dart';
-import 'package:rectec_app/pages/historico.page.dart';
-import 'package:rectec_app/pages/login.page.dart';
-import 'package:rectec_app/pages/novo.pluviometro.page.dart';
-import 'package:rectec_app/pages/pluviometria.page.dart';
+import 'package:rectec_app/pages/alerta.conscientizacao.dart';
+import 'package:rectec_app/pages/alerta.mapa.dart';
+import 'package:rectec_app/pages/alerta.notificacao.dart';
+import 'package:rectec_app/pages/alerta.previsao.dart';
 import 'package:rectec_app/pages/tabs.page.dart';
 
-class MenuBar extends StatefulWidget {
+class AlertaMenuBar extends StatefulWidget {
   @override
-  _MenuBarState createState() => _MenuBarState();
+  _AlertaMenuBarState createState() => _AlertaMenuBarState();
 }
 
-class _MenuBarState extends State<MenuBar> {
+class _AlertaMenuBarState extends State<AlertaMenuBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -22,7 +20,7 @@ class _MenuBarState extends State<MenuBar> {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue
+              color: Colors.redAccent
             ),
             child: Container(
               child: Column(
@@ -64,9 +62,9 @@ class _MenuBarState extends State<MenuBar> {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.opacity),
+            leading: Icon(Icons.pin_drop),
             title: Text(
-              "Pluviometria",
+              "Mapa",
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 19,
@@ -74,65 +72,51 @@ class _MenuBarState extends State<MenuBar> {
             ),
             //selected: true,
             onTap: (){
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => PluviometriaPage()), (Route<dynamic> route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MapaPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.person_add),
+            leading: Icon(Icons.cloud),
             title: Text(
-              "Cadastrar Medidor",
+              "Previsão",
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 19,
               ),
             ),
             onTap: (){
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => CadastrarMedidorPage()), (Route<dynamic> route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => PrevisaoPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.people),
+            leading: Icon(Icons.notification_important),
             title: Text(
-              "Configurar Medidor",
+              "Notificação",
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 19,
               ),
             ),
             onTap: (){
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => ConfigurarMedidorPage()), (Route<dynamic> route) => false);
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => NotificacaoPage()), (Route<dynamic> route) => false);
             },
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.add_circle),
+            leading: Icon(Icons.sentiment_satisfied),
             title: Text(
-              "Novo Pluviometro",
+              "Conscientização",
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 19,
               ),
             ),
             onTap: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => NovoPluviometroPage()), (Route<dynamic> route) => false);
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => ConscientizacaoPage()), (Route<dynamic> route) => false);
             },
           ),
-          /*Divider(),
-          ListTile(
-            leading: Icon(Icons.web),
-            title: Text(
-              "Histórico",
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: 19,
-              ),
-            ),
-            onTap: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HistoricoPage()), (Route<dynamic> route) => false);
-            },
-          ),*/
           Divider(),
           ListTile(
             leading: Icon(Icons.directions_run),

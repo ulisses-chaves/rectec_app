@@ -4,6 +4,7 @@ import 'package:rectec_app/blocs/modelo.bloc.dart';
 import 'package:rectec_app/blocs/pluviometro.bloc.dart';
 import 'package:rectec_app/blocs/user.bloc.dart';
 import 'package:rectec_app/pages/login.page.dart';
+import 'package:rectec_app/pages/tabs.page.dart';
 import 'blocs/pluviometria.bloc.dart';
 
 void main() => runApp(MyApp());
@@ -40,7 +41,10 @@ class Main extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: DefaultTabController(
+        length: 2,
+        child: TabsPage(),
+      ),
     );
   }
 }
