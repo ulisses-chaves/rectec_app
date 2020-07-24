@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/blocs/user.bloc.dart';
-import 'package:rectec_app/pages/alerta.conscientizacao.page.dart';
-import 'package:rectec_app/pages/alerta.mapa.page.dart';
-import 'package:rectec_app/pages/alerta.notificacao.page.dart';
-import 'package:rectec_app/pages/alerta.previsao.page.dart';
+import 'package:rectec_app/blocs/pluviometria/user.bloc.dart';
+import 'package:rectec_app/pages/alerta/alerta.conscientizacao.page.dart';
+import 'package:rectec_app/pages/alerta/alerta.mapa.page.dart';
+import 'package:rectec_app/pages/alerta/alerta.notificacao.page.dart';
+import 'package:rectec_app/pages/alerta/alerta.previsao.page.dart';
 import 'package:rectec_app/pages/tabs.page.dart';
 
 class AlertaMenuBar extends StatefulWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/blocs/modelo.bloc.dart';
-import 'package:rectec_app/blocs/pluviometro.bloc.dart';
-import 'package:rectec_app/models/modelo.model.dart';
-import 'package:rectec_app/pages/menu.bar.dart';
+import 'package:rectec_app/blocs/pluviometria/modelo.bloc.dart';
+import 'package:rectec_app/blocs/pluviometria/pluviometro.bloc.dart';
+import 'package:rectec_app/models/pluviometria/modelo.model.dart';
+import 'package:rectec_app/pages/pluviometria/menu.bar.dart';
 
 class NovoPluviometroPage extends StatefulWidget {
   @override

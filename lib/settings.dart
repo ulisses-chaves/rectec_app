@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'models/user.model.dart';
+import 'models/pluviometria/user.model.dart';
 
 class Settings {
   static String apiUrl = "http://app.prae.ufrpe.br/rectec/api/";

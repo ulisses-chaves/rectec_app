@@ -4,10 +4,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/blocs/pluviometria.bloc.dart';
-import 'package:rectec_app/blocs/pluviometro.bloc.dart';
-import 'package:rectec_app/models/pluviometro.model.dart';
-import 'package:rectec_app/pages/menu.bar.dart';
+import 'package:rectec_app/blocs/pluviometria/pluviometria.bloc.dart';
+import 'package:rectec_app/blocs/pluviometria/pluviometro.bloc.dart';
+import 'package:rectec_app/models/pluviometria/pluviometro.model.dart';
+import 'package:rectec_app/pages/pluviometria/menu.bar.dart';
 
 class PluviometriaPage extends StatefulWidget {
   @override

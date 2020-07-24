@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/blocs/pluviometria.bloc.dart';
-import 'package:rectec_app/blocs/user.bloc.dart';
-import 'package:rectec_app/models/pluviometria.model.dart';
-import 'package:rectec_app/models/user.model.dart';
-import 'package:rectec_app/pages/menu.bar.dart';
+import 'package:rectec_app/blocs/pluviometria/pluviometria.bloc.dart';
+import 'package:rectec_app/blocs/pluviometria/user.bloc.dart';
+import 'package:rectec_app/models/pluviometria/pluviometria.model.dart';
+import 'package:rectec_app/models/pluviometria/user.model.dart';
+import 'package:rectec_app/pages/pluviometria/menu.bar.dart';
 
 class SelecionarHistoricoPage extends StatelessWidget {
   @override

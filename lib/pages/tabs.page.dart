@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rectec_app/pages/alerta.login.page.dart';
-import 'package:rectec_app/pages/login.page.dart';
+import 'package:rectec_app/pages/alerta/alerta.login.page.dart';
+import 'package:rectec_app/pages/pluviometria/login.page.dart';
 
 class TabsPage extends StatelessWidget {
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/blocs/user.bloc.dart';
+import 'package:rectec_app/blocs/pluviometria/user.bloc.dart';
 import 'package:rectec_app/models/contaUser.model.dart';
-import 'package:rectec_app/pages/pluviometria.page.dart';
+import 'package:rectec_app/pages/pluviometria/pluviometria.page.dart';
 
 
 class LoginPage extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rectec_app/pages/alerta.mapa.page.dart';
+import 'package:rectec_app/pages/alerta/alerta.mapa.page.dart';
 
 class AlertaLoginPage extends StatelessWidget {
   @override

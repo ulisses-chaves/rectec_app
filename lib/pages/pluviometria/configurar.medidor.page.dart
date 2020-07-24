@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/blocs/pluviometro.bloc.dart';
-import 'package:rectec_app/blocs/user.bloc.dart';
-import 'package:rectec_app/models/pluviometro.model.dart';
-import 'package:rectec_app/models/user.model.dart';
-import 'package:rectec_app/pages/menu.bar.dart';
+import 'package:rectec_app/blocs/pluviometria/pluviometro.bloc.dart';
+import 'package:rectec_app/blocs/pluviometria/user.bloc.dart';
+import 'package:rectec_app/models/pluviometria/pluviometro.model.dart';
+import 'package:rectec_app/models/pluviometria/user.model.dart';
+import 'package:rectec_app/pages/pluviometria/menu.bar.dart';
 
 class ConfigurarMedidorPage extends StatefulWidget {
   @override

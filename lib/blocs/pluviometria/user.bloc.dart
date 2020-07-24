@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:rectec_app/models/contaUser.model.dart';
-import 'package:rectec_app/models/user.model.dart';
-import 'package:rectec_app/repository/user.repository.dart';
+import 'package:rectec_app/models/pluviometria/user.model.dart';
+import 'package:rectec_app/repository/pluviometria/user.repository.dart';
+import 'package:rectec_app/settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../settings.dart';
 
 class UserBloc extends ChangeNotifier{
   User user = new User();

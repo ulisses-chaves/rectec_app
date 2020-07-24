@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/models/modelo.model.dart';
-import 'package:rectec_app/models/pluviometro.model.dart';
-import 'package:rectec_app/repository/pluviometro.repository.dart';
+import 'package:rectec_app/models/pluviometria/modelo.model.dart';
+import 'package:rectec_app/models/pluviometria/pluviometro.model.dart';
+import 'package:rectec_app/repository/pluviometria/pluviometro.repository.dart';
 import 'modelo.bloc.dart';
 
 class PluviometroBloc extends ChangeNotifier{

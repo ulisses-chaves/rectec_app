@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:rectec_app/models/modelo.model.dart';
+import 'package:rectec_app/models/pluviometria/modelo.model.dart';
 
-import '../settings.dart';
+import '../../settings.dart';
 
 class ModeloRepository {
   Future<List<Modelo>> getAll() async {

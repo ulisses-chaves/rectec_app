@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:rectec_app/models/contaUser.model.dart';
-import 'package:rectec_app/models/user.model.dart';
+import 'package:rectec_app/models/pluviometria/user.model.dart';
 import 'package:rectec_app/settings.dart';
 
 class UserRepository {

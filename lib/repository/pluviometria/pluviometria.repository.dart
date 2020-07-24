@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:rectec_app/models/pluviometria.model.dart';
+import 'package:rectec_app/models/pluviometria/pluviometria.model.dart';
 import 'package:rectec_app/settings.dart';
 
 class PluviometriaRepository {

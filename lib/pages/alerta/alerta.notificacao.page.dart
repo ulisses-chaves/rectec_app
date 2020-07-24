@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rectec_app/pages/alerta.menu.dart';
+import 'package:rectec_app/pages/alerta/alerta.menu.dart';
 
 class NotificacaoPage extends StatelessWidget {
   @override

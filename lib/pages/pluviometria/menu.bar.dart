@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rectec_app/blocs/user.bloc.dart';
-import 'package:rectec_app/pages/cadastrar.medidor.page.dart';
-import 'package:rectec_app/pages/configurar.medidor.page.dart';
-import 'package:rectec_app/pages/historico.page.dart';
-import 'package:rectec_app/pages/login.page.dart';
-import 'package:rectec_app/pages/novo.pluviometro.page.dart';
-import 'package:rectec_app/pages/pluviometria.page.dart';
+import 'package:rectec_app/blocs/pluviometria/user.bloc.dart';
+import 'package:rectec_app/pages/pluviometria/cadastrar.medidor.page.dart';
+import 'package:rectec_app/pages/pluviometria/configurar.medidor.page.dart';
+import 'package:rectec_app/pages/pluviometria/historico.page.dart';
+import 'package:rectec_app/pages/pluviometria/login.page.dart';
+import 'package:rectec_app/pages/pluviometria/novo.pluviometro.page.dart';
+import 'package:rectec_app/pages/pluviometria/pluviometria.page.dart';
 import 'package:rectec_app/pages/tabs.page.dart';
 
 class MenuBar extends StatefulWidget {
