@@ -230,11 +230,12 @@ class _CampoSelecao<T> extends StatelessWidget {
                 value: indice,
                 child: Text(
                   descricao(itens[indice]),
-                  maxLines: 1,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
           ],
+          
           onChanged: habilitado && itens.isNotEmpty ? onChanged : null,
         ),
       ),
