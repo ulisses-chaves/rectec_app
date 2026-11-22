@@ -15,13 +15,13 @@ class SelecionarHistoricoPage extends StatelessWidget {
           "Histórico",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 24,
           ),
         ),
       ),
       drawer: MenuBar(),
       body: Container(
-        color: Colors.blueGrey[50],
+        color: Colors.blueGrey[46],
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(
           top: 60,
@@ -32,7 +32,7 @@ class SelecionarHistoricoPage extends StatelessWidget {
           children: <Widget>[
             TextFormField(
               decoration: InputDecoration(
-                labelText: "Data Origem"
+                labelText: "Data início"
               ),
               onTap: () async {
                 final dtPick = await showDatePicker(
